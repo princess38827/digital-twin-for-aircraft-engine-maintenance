@@ -1,5 +1,8 @@
 # A Digital-Twin (DT) based solution for predictive maintenance of aircraft engine
-An initial Digital Twin prototype for aircraft engine health management, starting from the data acquisition process up to the application of Deep Learning (DL) techniques, in order to identify possible faults (diagnostics) and to predict the RUL of the aircraft engine (prognostics) for assessing the overall health of the structure. For this purpose, the renowned [N-CMAPSS](https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/#:~:text=Turbofan%20Engine%20Degradation%20Simulation%2D2) dataset, developed by NASA researchers, is used.
+
+[![Deploy Next.js site to Pages](https://github.com/princess38827/digital-twin-for-aircraft-engine-maintenance/actions/workflows/nextjs.yml/badge.svg)](https://github.com/princess38827/digital-twin-for-aircraft-engine-maintenance/actions/workflows/nextjs.yml)
+
+An initial Digital Twin prototype for aircraft engine health management, starting from the data acquisition process up to the application of Deep Learning (DL) techniques, in order to identify poss[...]
 
 The first goal is to implement a predictive maintenance workflow:
 
@@ -9,13 +12,13 @@ The first goal is to implement a predictive maintenance workflow:
 
 ## The workflow 
 
-Of the several datasets provided by Nasa, the focus is placed on the third set **`N-CMAPSS_DS03-012.h5`**, whose download link is mentioned above. The dataset is divided into development and test set.
+Of the several datasets provided by Nasa, the focus is placed on the third set **`N-CMAPSS_DS03-012.h5`**, whose download link is mentioned above. The dataset is divided into development and test [...]
 
-1. Exploratory Data Analysis is applied by analysing data with visual aid in `Exploratory_data_analysis.ipynb`. In short, different unit numbers and flight classes are investigated and the existing failure modes are analysed, in order to perform data preprocessing correctly.
+1. Exploratory Data Analysis is applied by analysing data with visual aid in `Exploratory_data_analysis.ipynb`. In short, different unit numbers and flight classes are investigated and the existin[...]
    
-2. Feature selection is applied both for diagnostics and prognostics tasks in `Feature_selection.ipynb`, using the ANOVA technique and the Mutual Information measure. The scores of each apporach are saved in the `feature_selection_models` folder.
+2. Feature selection is applied both for diagnostics and prognostics tasks in `Feature_selection.ipynb`, using the ANOVA technique and the Mutual Information measure. The scores of each apporach a[...]
 
-3. Two distinct models for each task are trained in `Deep_learning_model.ipynb`. The Deep Learning model chosen for both tasks is made of Long-Short Term memory (LSTM) layers, specifically of the Bidirectional type. The models and the scaler are saved in the `deep_learning_models` folder.
+3. Two distinct models for each task are trained in `Deep_learning_model.ipynb`. The Deep Learning model chosen for both tasks is made of Long-Short Term memory (LSTM) layers, specifically of the [...]
 
 The second and last goal is to present a real use case to demonstrate the applicability of the previously proposed models:
 
@@ -31,7 +34,7 @@ The scenario described involves three different agents that communicate with eac
 
 2. The entire logic for evaluating the incoming data is present in `Agent_evaluation.ipynb`, which will first apply the preprocessing steps needed on the raw data.
 
-3. A [Node-RED](https://nodered.org/) instance enables communication between the agents in `Agent_dashboard.ipynb`, providing a dashboard that delivers key features about the aircraft health state.
+3. A [Node-RED](https://nodered.org/) instance enables communication between the agents in `Agent_dashboard.ipynb`, providing a dashboard that delivers key features about the aircraft health state[...]
 
 ## Prerequisites
 
@@ -39,7 +42,7 @@ Install pip, the package manager for Python3 in order to install the required pa
 ```
 pip install -r requirements.txt
 ```
-To be able to start effectively the agents, also install the Mosquitto MQTT Broker (**v2.0.18**), Node.js (**v17.9.1**) and Node-RED (**v3.0.2**). In order to install the extra modules needed for the node-RED dashboard, copy `package.json` into the local **.node-red** folder and from the same directory run:
+To be able to start effectively the agents, also install the Mosquitto MQTT Broker (**v2.0.18**), Node.js (**v17.9.1**) and Node-RED (**v3.0.2**). In order to install the extra modules needed for [...]
 ```
 npm install
 ```
